@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacionalidade</title>
+</head>
+<body>
+    <h1>Qual a sua nacionalidade?</h1>
+
+    <p>Em qual país você nasceu: <input type="text" name="txt" id="itxt"></p>
+    <input type="button" value="Verificar" onclick="calcular()">
+    <div id="res"></div>
+
+    <script>
+        function calcular() {
+            var pais = document.getElementById("itxt").value.trim().toLowerCase()
+            var res = document.getElementById("res")
+    
+            if (pais === "brasil") {
+                res.innerHTML = `<p>Sua nacionalidade é <strong>Brasileiro</strong>.</p>`
+            } else {
+                res.innerHTML = `<p>Você é <strong>estrangeiro</strong>.</p>`
+            } 
+        }
+    </script>
+</body>
+</html>
