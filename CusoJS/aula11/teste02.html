@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino de JS (imc)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="caixa">
+        <h1>Calculadora de IMC</h1>
+        <p>Coloque sua altura (em metros): <input type="number" id="alt" step="0.01"></p>
+        <p>Coloque seu peso (em kg): <input type="number" id="peso" step="0.1"></p>
+        <button onclick="calcular()">Calcular IMC</button>
+        <div id="res" style="margin-top: 20px; font-weight: bold;">
+        </div>
+    </div>
+
+    <script>
+    
+        function calcular() {
+
+            let alt = parseFloat(document.getElementById("alt").value);
+            let peso = parseFloat(document.getElementById("peso").value);
+            let res = document.getElementById("res");
+
+            if (isNaN(alt) || isNaN(peso)) {
+                res.innerHTML = "Por favor, preencha todos os campos corretamente.";
+                return;
+            }
+
+            let imc = peso / (alt * alt);
+            let classificacao = "";
+
+            if (imc < 18.5) {
+                classificacao = "Abaixo do peso";
+            } else if (imc < 25) {
+                classificacao = "Peso normal";
+            } else if (imc < 30) {
+                classificacao = "Sobrepeso";
+            } else {
+                classificacao = "Obesidade";
+            }
+
+            res.innerHTML = `Seu IMC é <strong>${imc.toFixed(2)}</strong> (${classificacao})`;
+        }
+    </script>
+</body>
+</html>
